@@ -1,5 +1,7 @@
 import React from 'react'
-import { MdLineStyle, MdTimeline, MdTrendingUp, MdArrowDownward } from "react-icons/md";
+import { MdLineStyle, MdTimeline, MdTrendingUp, MdArrowDownward, MdBarChart, MdMailOutline, MdDynamicFeed } from "react-icons/md";
+import { FiUser, FiPackage, FiMessageSquare} from "react-icons/fi";
+import { BiDollar} from "react-icons/bi";
 
 export default function Sidebar() {
   return (
@@ -14,45 +16,66 @@ export default function Sidebar() {
                     </li>
                     <li className="sidebarListItem">
                         <MdTimeline className='sidebarIcons' />
-                        Home
+                        Analytics
                     </li>
                     <li className="sidebarListItem">
                         <MdTrendingUp className='sidebarIcons' />
-                        Home
+                        Sales
                     </li>
                 </ul>
             </div>
             <div className="sidebarMenu">
-                <h3 className="sidebarTitle">Dashbourd</h3>
+                <h3 className="sidebarTitle">Quick Menu</h3>
                 <ul className="sidebarList">
-                    <li className="sidebarListItem active">
-                        <MdLineStyle className='sidebarIcons' />
-                        Home
+                    <li className="sidebarListItem">
+                        <FiUser className='sidebarIcons' />
+                        Users
                     </li>
                     <li className="sidebarListItem">
-                        <MdTimeline className='sidebarIcons' />
-                        Home
+                        <FiPackage className='sidebarIcons' />
+                        Products
                     </li>
                     <li className="sidebarListItem">
-                        <MdTrendingUp className='sidebarIcons' />
-                        Home
+                        <BiDollar className='sidebarIcons' />
+                        Transactions
+                    </li>
+                    <li className="sidebarListItem">
+                        <MdBarChart className='sidebarIcons' />
+                        Reports
                     </li>
                 </ul>
             </div>
             <div className="sidebarMenu">
-                <h3 className="sidebarTitle">Dashbourd</h3>
+                <h3 className="sidebarTitle">Notifications</h3>
                 <ul className="sidebarList">
-                    <li className="sidebarListItem active">
-                        <MdLineStyle className='sidebarIcons' />
-                        Home
+                    <li className="sidebarListItem">
+                        <MdMailOutline className='sidebarIcons' />
+                        Mail
                     </li>
                     <li className="sidebarListItem">
-                        <MdTimeline className='sidebarIcons' />
-                        Home
+                        <MdDynamicFeed className='sidebarIcons' />
+                        Feedback
                     </li>
                     <li className="sidebarListItem">
-                        <MdTrendingUp className='sidebarIcons' />
-                        Home
+                        <FiMessageSquare className='sidebarIcons' />
+                        Messages
+                    </li>
+                </ul>
+            </div>
+            <div className="sidebarMenu">
+                <h3 className="sidebarTitle">Staff</h3>
+                <ul className="sidebarList">
+                    <li className="sidebarListItem">
+                        <MdMailOutline className='sidebarIcons' />
+                        Mail
+                    </li>
+                    <li className="sidebarListItem">
+                        <MdDynamicFeed className='sidebarIcons' />
+                        Feedback
+                    </li>
+                    <li className="sidebarListItem">
+                        <FiMessageSquare className='sidebarIcons' />
+                        Messages
                     </li>
                 </ul>
             </div>
