@@ -1,5 +1,4 @@
 .sidebar{
-    flex: 1;
     background-color: rgb(253, 253, 253);
     height: calc(100vh - 50px);
     position: sticky;
@@ -7,24 +6,36 @@
     .sidebarWrapper {
         padding: 20px;
         color: #555;
+       
         .sidebarMenu{
             margin-top: 10px;
             .sidebarTitle{
                 font-size: 13px;
                 color: lightgray;
+               
             }
             .sidebarList{
                 list-style: none;
                 padding: 5px;
+               
                 .sidebarListItem{
                     padding: 5px;
                     cursor: pointer;
                     display: flex;
                     align-items: center;
                     border-radius: 10px;
+                    color: #555;
+                    
                     .sidebarIcons{
                         margin-right: 5px;
                         font-size: 20px !important;
+                      
+                    }
+                    strong {
+                        font-weight: 400;
+                        @media (max-width: 865px) {
+                            display: none;
+                        }
                     }
                 }
                 .sidebarListItem.active,.sidebarListItem:hover{

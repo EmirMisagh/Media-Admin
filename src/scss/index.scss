@@ -13,11 +13,16 @@ html {
     margin: 0;
     font-family: 'Source Sans Pro', sans-serif;
 }
+a,a:active,a:hover {
+    text-decoration: none;
+    
+}
 .container{
-    display: flex;
-    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    margin-top: 0px;
+    width: 100%;
 }
 .Pages {
-    flex: 4;
     padding: 30px 0;
 }
