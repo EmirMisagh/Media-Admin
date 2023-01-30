@@ -20,6 +20,111 @@ export default function WidgetLg() {
                         Costomer
                     </th>
                 </tr>
+                <tr className="WidgetTr">
+                    <td className='WidgetUser'>
+                        <img src="http://localhost:3001/image/news/cristiano-ronaldo.jpg" alt="" />
+                        <span>Amir Misagh</span>
+                    </td>
+                    <td>
+                        2 Jan 2023
+                    </td>
+                    <td>
+                        2 Jan 2023
+                    </td>
+                    <td>
+                        2 Jan 2023
+                    </td>
+                </tr>
+                <tr className="WidgetTr">
+                    <td className='WidgetUser'>
+                        <img src="http://localhost:3001/image/news/cristiano-ronaldo.jpg" alt="" />
+                        <span>Amir Misagh</span>
+                    </td>
+                    <td>
+                        2 Jan 2023
+                    </td>
+                    <td>
+                        2 Jan 2023
+                    </td>
+                    <td>
+                        2 Jan 2023
+                    </td>
+                </tr>
+                <tr className="WidgetTr">
+                    <td className='WidgetUser'>
+                        <img src="http://localhost:3001/image/news/cristiano-ronaldo.jpg" alt="" />
+                        <span>Amir Misagh</span>
+                    </td>
+                    <td>
+                        2 Jan 2023
+                    </td>
+                    <td>
+                        2 Jan 2023
+                    </td>
+                    <td>
+                        2 Jan 2023
+                    </td>
+                </tr>
+                <tr className="WidgetTr">
+                    <td className='WidgetUser'>
+                        <img src="http://localhost:3001/image/news/cristiano-ronaldo.jpg" alt="" />
+                        <span>Amir Misagh</span>
+                    </td>
+                    <td>
+                        2 Jan 2023
+                    </td>
+                    <td>
+                        2 Jan 2023
+                    </td>
+                    <td>
+                        2 Jan 2023
+                    </td>
+                </tr>
+                <tr className="WidgetTr">
+                    <td className='WidgetUser'>
+                        <img src="http://localhost:3001/image/news/cristiano-ronaldo.jpg" alt="" />
+                        <span>Amir Misagh</span>
+                    </td>
+                    <td>
+                        2 Jan 2023
+                    </td>
+                    <td>
+                        2 Jan 2023
+                    </td>
+                    <td>
+                        2 Jan 2023
+                    </td>
+                </tr>
+                <tr className="WidgetTr">
+                    <td className='WidgetUser'>
+                        <img src="http://localhost:3001/image/news/cristiano-ronaldo.jpg" alt="" />
+                        <span>Amir Misagh</span>
+                    </td>
+                    <td>
+                        2 Jan 2023
+                    </td>
+                    <td>
+                        2 Jan 2023
+                    </td>
+                    <td>
+                        2 Jan 2023
+                    </td>
+                </tr>
+                <tr className="WidgetTr">
+                    <td className='WidgetUser'>
+                        <img src="http://localhost:3001/image/news/cristiano-ronaldo.jpg" alt="" />
+                        <span>Amir Misagh</span>
+                    </td>
+                    <td>
+                        2 Jan 2023
+                    </td>
+                    <td>
+                        2 Jan 2023
+                    </td>
+                    <td>
+                        2 Jan 2023
+                    </td>
+                </tr>
             </table>
         </div>
     </div>

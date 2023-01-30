@@ -71,5 +71,27 @@
         font-weight: 600;
     }
 
-    .WidgetTb {}
+    .WidgetTb {
+        width: 100%;
+        border-spacing: 20px;
+        .WidgetTr {
+            .WidgetUser {
+                display: flex;
+                align-items: center;
+                font-weight: 600;
+                span {
+                    margin-left: 10px;
+                }
+            }
+            td {
+                padding: 10px 0;
+                font-weight: 300;
+                img {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
 }
