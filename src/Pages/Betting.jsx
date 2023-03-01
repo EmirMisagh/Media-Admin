@@ -4,7 +4,7 @@ import Featuredinfo from '../Components/Featuredinfo'
 import WidgetSm from '../Components/WidgetSm'
 import WidgetLg from '../Components/WidgetLg'
 
-export default function Home() {
+export default function Betting() {
   return (
     <div>
         <Featuredinfo />
