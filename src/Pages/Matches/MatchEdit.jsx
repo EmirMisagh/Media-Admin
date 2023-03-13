@@ -26,8 +26,9 @@ export default function MatchEdit() {
     const close = () => {
         API.get(`betting/close/${News._id}`)
         .then(responce => {
-            alert(responce.data.data);
-            console.log(responce.data.data);
+            toast.success(responce.data.data, {
+                position: toast.POSITION.BOTTOM_RIGHT
+            });
         })
       }
 

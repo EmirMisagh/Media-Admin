@@ -74,6 +74,24 @@ export default function LeagueNew() {
                 </select>
               </div>
               <div className="updateItem">
+                <label htmlFor="">Euro</label>
+                <select onChange={e => setSport(e.target.value)} className="mt-1" name="" id="">
+                  <option value={false}>false</option>
+                  <option value={true}>true</option>
+                 
+
+                </select>
+              </div>
+              <div className="updateItem">
+                <label htmlFor="">Navbar</label>
+                <select onChange={e => setSport(e.target.value)} className="mt-1" name="" id="">
+                  <option value={false}>false</option>
+                  <option value={true}>true</option>
+                 
+
+                </select>
+              </div>
+              <div className="updateItem">
                 <label htmlFor="">Date</label>
                 <input type="date" placeholder='+989025941001' onChange={e => setDate(e.target.value)} />
               </div>

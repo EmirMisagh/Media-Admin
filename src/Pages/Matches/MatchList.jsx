@@ -28,7 +28,6 @@ export default function MatchList() {
             if (team._id == id)
                 return team
         })
-        console.log(fteam)
         return (
             <div className='firstname'>
                 <img className='ms-0' src={fteam.img} alt='' />
@@ -58,7 +57,6 @@ export default function MatchList() {
         setTeam(Team.filter(item => item._id !== id))
         API.delete(`match/delete/${id}`)
         .then(response => {
-          console.log(response.data.data);
           toast.success(response.data.data, {
             position: toast.POSITION.BOTTOM_RIGHT
         });

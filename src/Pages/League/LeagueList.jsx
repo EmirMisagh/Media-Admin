@@ -43,7 +43,21 @@ export default function LeagueList() {
           field: 'sport',
           headerName: 'sport',
           className: 'text-center',
-          width: 190,
+          width: 90,
+         
+        },
+        {
+          field: 'euro',
+          headerName: 'Euro',
+          className: 'text-center',
+          width: 90,
+         
+        },
+        {
+          field: 'navbar',
+          headerName: 'navbar',
+          className: 'text-center',
+          width: 90,
          
         },
        

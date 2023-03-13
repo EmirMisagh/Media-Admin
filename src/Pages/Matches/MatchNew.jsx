@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function MatchNew() {
     const [Teamlist, setTeamlist] = useState([])
+    const [TeamlistFilter, setTeamlistFilter] = useState([...Teamlist])
     const [Leaguelist, setLeaguelist] = useState([])
     const [Fteam, setFteam] = useState('')
     const [Lteam, setLteam] = useState('')
@@ -28,19 +29,17 @@ export default function MatchNew() {
         API.get('league')
             .then(responce => {
                 setLeaguelist(responce.data.data)
-                console.log(responce.data.data)
             })
         API.get('team')
             .then(responce => {
                 setTeamlist(responce.data.data)
-                console.log(responce.data.data)
+                setTeamlistFilter(responce.data.data)
             })
     }, [])
 
     const UpdateImage = (e) => {
         let img = e.target.value;
         img = img.split("\\");
-        console.log(img[img.length - 1])
         setImg(img[img.length - 1])
     }
 
@@ -55,6 +54,11 @@ export default function MatchNew() {
             })
     }
 
+    const HandleLeagueFilter = (e) =>{
+        setLeague(e.target.value)
+        setTeamlistFilter(Teamlist.filter(item => item.league == e.target.value))
+    }
+
     return (
         <div className='usernew'>
             <div className="userContainer">
@@ -66,7 +70,7 @@ export default function MatchNew() {
                                 <label htmlFor="">First Team</label>
                                 <select onChange={e => setFteam(e.target.value)} className="mt-1" name="" id="">
                                     <option value=''></option>
-                                    {Teamlist.map((league, i) => {
+                                    {TeamlistFilter.map((league, i) => {
                                         return (
                                             <option value={league._id}>{league.name}</option>
                                         )
@@ -78,7 +82,7 @@ export default function MatchNew() {
                                 <label htmlFor="">Last Team</label>
                                 <select onChange={e => setLteam(e.target.value)} className="mt-1" name="" id="">
                                     <option value=''></option>
-                                    {Teamlist.map((league, i) => {
+                                    {TeamlistFilter.map((league, i) => {
                                         return (
                                             <option value={league._id}>{league.name}</option>
                                         )
@@ -92,7 +96,7 @@ export default function MatchNew() {
                             </div>
                             <div className="updateItem">
                                 <label htmlFor="">League</label>
-                                <select onChange={e => setLeague(e.target.value)} className="mt-1" name="" id="">
+                                <select onChange={e => HandleLeagueFilter(e)} className="mt-1" name="" id="">
                                     <option value=''></option>
                                     {Leaguelist.map((league, i) => {
                                         return (
