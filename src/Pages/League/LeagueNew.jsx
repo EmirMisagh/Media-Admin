@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { FiUser, FiPackage, FiMessageSquare } from "react-icons/fi";
+import { FiUser } from "react-icons/fi";
 import API from '../../Components/tools/Api'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -98,7 +98,7 @@ export default function LeagueNew() {
             </div>
             <div className="updateRight">
               <div className="updateUpload">
-                <img src={Img != '' ? `http://localhost:3001/image/teamlogo/league/${Img}` : `http://localhost:3001/image/news/cristiano-ronaldo.jpg`} alt="" />
+                <img src={Img !== '' ? `http://localhost:3001/image/teamlogo/league/${Img}` : `http://localhost:3001/image/news/cristiano-ronaldo.jpg`} alt="" />
 
                 <label htmlFor="file"><FiUser /></label>
                 <input type="file" id="file" onChange={e => UpdateImage(e)} style={{ display: 'none' }} />

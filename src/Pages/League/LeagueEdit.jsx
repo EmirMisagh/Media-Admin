@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { FiUser, FiPackage, FiMessageSquare } from "react-icons/fi";
+import { FiUser } from "react-icons/fi";
 import { DataGrid } from '@mui/x-data-grid';
 import { MdDeleteForever, MdOutlineModeEditOutline, MdUpload } from "react-icons/md";
 import { ImArrowDown, ImArrowUp } from "react-icons/im";
@@ -7,6 +7,8 @@ import { NavLink, useParams } from 'react-router-dom';
 import API from '../../Components/tools/Api'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import TableLeague from '../../Components/TableLeague';
+import TableChampion from '../../Components/TableChampion';
 
 export default function LeagueEdit() {
     const [SportList, setSportList] = useState([]);
@@ -14,14 +16,17 @@ export default function LeagueEdit() {
     const [Name, setName] = useState('')
     const [Continent, setContinent] = useState('');
     const [Sport, setSport] = useState('');
-    const [Euro, setEuro] = useState(false);
-    const [Navbar, setNavbar] = useState(false);
+    const [Euro, setEuro] = useState('');
+    const [Navbar, setNavbar] = useState('');
+    const [Champoin, setChampoin] = useState('');
     const [Img, setImg] = useState('')
     const [Team, setTeam] = useState([])
     const [Table, setTable] = useState([])
+    const [Agroup, setAgroup] = useState([])
+    const [Bgroup, setBgroup] = useState([])
 
     const { id } = useParams();
-    const newsedit = { Name, Continent, Sport, Euro, Navbar, Img }
+    const newsedit = { Name, Continent, Sport, Euro, Navbar, Img, Champoin }
 
 
     const Update = () => {
@@ -44,7 +49,7 @@ export default function LeagueEdit() {
     useEffect(() => {
         API.get('team')
             .then(responce => {
-                setTeam(responce.data.data.filter(item => item.league == id))
+                setTeam(responce.data.data)
             })
         API.get(`sport`)
             .then(responce => {
@@ -53,19 +58,29 @@ export default function LeagueEdit() {
         API.get(`league/${id}`)
             .then(responce => {
                 setNews(responce.data.data);
-                setTable(responce.data.data.table.sort(function (a, b) {
-                    return a.number - b.number;
-                }))
+                if(responce.data.data.champoin !== true){
+
+                    setTable(responce.data.data.table.sort(function (a, b) {
+                        return a.number - b.number;
+                    }))
+                }else{
+
+                    setAgroup(responce.data.data.a.sort(function (a, b) {
+                        return a.number - b.number;
+                    }))
+                    setBgroup(responce.data.data.a.sort(function (a, b) {
+                        return a.number - b.number;
+                    }))
+                    console.log(responce.data.data.a)
+                }
             })
 
-    }, [])
+    }, [id])
 
     const imgteamF = (id) => {
 
-        const fteam = Team.find(team => {
-            if (team._id == id)
-                return team
-        })
+        const fteam = Team.find(team => team._id === id)
+
         return (
             <div className='firstname'>
                 <img className='ms-0' src={fteam.img} alt='' />
@@ -78,15 +93,15 @@ export default function LeagueEdit() {
         const array = [...Table]
         let num = 0
         array.forEach((item, i) => {
-            if (item.id == id) {
+            if (item.id === id) {
                 item.number -= 1;
                 num = item.number;
             }
         })
         array.forEach(i => {
 
-            if (i.number == num) {
-                if (i.id != id)
+            if (i.number === num) {
+                if (i.id !== id)
                     i.number += 1;
             }
         })
@@ -99,15 +114,15 @@ export default function LeagueEdit() {
         const array = [...Table]
         let num = 0
         array.forEach((item, i) => {
-            if (item.id == id) {
+            if (item.id === id) {
                 item.number += 1;
                 num = item.number;
             }
         })
         array.forEach(i => {
 
-            if (i.number == num) {
-                if (i.id != id)
+            if (i.number === num) {
+                if (i.id !== id)
                     i.number -= 1;
             }
         })
@@ -165,7 +180,7 @@ export default function LeagueEdit() {
                 <div className="userContainer">
                     <div className="userShow">
                         <div className="top">
-                            <img src={Img != '' ? `http://localhost:3001/image/teamlogo/league/${Img}` : News.img} alt="" />
+                            <img src={Img !== '' ? `http://localhost:3001/image/teamlogo/league/${Img}` : News.img} alt="" />
                             <div className="topTitle">
                                 <span className='username'>{News.name}</span>
                                 <span className='title'>{News.continent}</span>
@@ -221,25 +236,31 @@ export default function LeagueEdit() {
                                 <div className="updateItem">
                                     <label htmlFor="">Euro</label>
                                     <select onChange={e => setEuro(e.target.value)} className="mt-1" name="" id="">
+                                        <option value=''></option>
                                         <option value={false}>false</option>
                                         <option value={true}>true</option>
-
-
                                     </select>
                                 </div>
                                 <div className="updateItem">
                                     <label htmlFor="">Navbar</label>
                                     <select onChange={e => setNavbar(e.target.value)} className="mt-1" name="" id="">
+                                        <option value=''></option>
                                         <option value={false}>false</option>
                                         <option value={true}>true</option>
-
-
+                                    </select>
+                                </div>
+                                <div className="updateItem">
+                                    <label htmlFor="">Champoin</label>
+                                    <select onChange={e => setChampoin(e.target.value)} className="mt-1" name="" id="">
+                                        <option value=''></option>
+                                        <option value={false}>false</option>
+                                        <option value={true}>true</option>
                                     </select>
                                 </div>
                             </div>
                             <div className="updateRight">
                                 <div className="updateUpload">
-                                    <img src={Img != '' ? `http://localhost:3001/image/teamlogo/league/${Img}` : News.img} alt="" />
+                                    <img src={Img !== '' ? `http://localhost:3001/image/teamlogo/league/${Img}` : News.img} alt="" />
 
                                     <label htmlFor="file"><MdUpload /></label>
                                     <input type="file" id="file" onChange={e => UpdateImage(e)} style={{ display: 'none' }} />
@@ -250,26 +271,14 @@ export default function LeagueEdit() {
                     </div>
                 </div>
                 <ToastContainer />
-
-                <div className="userTitle">
-                    <h2 className='text-b mt-3'>Table</h2>
-                    <div>
-
-                        <select className="mt-1 me-2" name="" id="">
-                            <option value=''></option>
-                            {Team.map((league, i) => {
-                                return (
-                                    <option value={league._id}>{league.name}</option>
-                                )
-                            })}
-
-                        </select>
-                        <button>Add</button>
-                    </div>
-                </div>
-                <div style={{ width: '100%', height: 'calc(100vh - 175px)' }}>
-                    <DataGrid rows={Table} disableSelectionOnClick columns={columns} pageSize={24} checkboxSelection />
-                </div>
+                {News.champoin === false ? (
+                        <TableLeague table={Table} team={Team} />
+                ) : (
+                    <>
+                        <TableChampion league={Agroup} team={Team} />
+                        <TableChampion league={Agroup} team={Team} />
+                    </>
+                )}
             </div>
         </>
     )
